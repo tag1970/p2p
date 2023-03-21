@@ -1,0 +1,14 @@
+[Unit]
+Description=myexporter service
+After=network-online.target
+
+[Service]
+User=myexporter
+ExecStart=/srv/myexporter/myexporter
+Restart=always
+RestartSec=3
+LimitNOFILE=4096
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE CAP_NET_RAW CAP_SYS_CHROOT CAP_SETGID CAP_SETUID CAP_SYS_RESOURCE
+
+[Install]
+WantedBy=multi-user.target
